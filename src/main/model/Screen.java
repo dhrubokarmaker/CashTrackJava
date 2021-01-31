@@ -11,8 +11,18 @@ public class Screen {
         screenMatrix = new char[SCREEN_WIDTH][SCREEN_HEIGHT];
     }
 
+    //getters
+    public int getScreenWidth() {
+        return SCREEN_WIDTH;
+    }
+
+    public int getScreenHeight() {
+        return SCREEN_HEIGHT;
+    }
+
+
     // MODIFIES: this
-    // EFFECTS: Makes empty game screen matrix
+    // EFFECTS: Makes empty game screen matrix and adds boundary
     public void makeEmptyScreen() {
         for (int i = 0; i < SCREEN_HEIGHT; i++) {
             for (int j = 0; j < SCREEN_WIDTH; j++) {
@@ -36,9 +46,9 @@ public class Screen {
     // REQUIRES: Object must be within the screenMatrix boundary
     // MODIFIES: this
     // EFFECTS : Adds Object to screenMatrix
-//    public void addObjectToScreen() {
-//
-//    }
+    public void addObjectToScreen(GameObject g) {
+        screenMatrix[g.getPosX()][g.getPosY()] = g.getCharacter();
+    }
 
 
 }

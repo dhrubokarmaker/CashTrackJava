@@ -1,11 +1,15 @@
 package model;
 
-public class Game {
+public class GameObject {
     private int posX;
     private int posY;
     private char character;
 
-    Game(){};
+//    public GameObject(int posX, int posY, char character) {
+//        this.posX = posX;
+//        this.posY = posY;
+//        this.character = character;
+//    }
 
     // getters
     public int getPosX() {
