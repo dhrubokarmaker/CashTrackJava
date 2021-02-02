@@ -14,20 +14,20 @@ public class Purchase {
     }
 
     //setters
-    public float getPrice() {
-        return price;
+    public void setItemCategory(String itemCategory) {
+        this.itemCategory = itemCategory;
     }
 
     public void setPrice(float price) {
         this.price = price;
     }
 
-    public String getPurchaseDay() {
-        return purchaseDay;
-    }
-
     public void setPurchaseDay(String purchaseDay) {
         this.purchaseDay = purchaseDay;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
     }
 
     // getters
@@ -35,15 +35,18 @@ public class Purchase {
         return itemName;
     }
 
-    public void setItemName(String itemName) {
-        this.itemName = itemName;
-    }
 
     public String getItemCategory() {
         return itemCategory;
     }
 
-    public void setItemCategory(String itemCategory) {
-        this.itemCategory = itemCategory;
+
+    public float getPrice() {
+        return price;
     }
+
+    public String getPurchaseDay() {
+        return purchaseDay;
+    }
+
 }
