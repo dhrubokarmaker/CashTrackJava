@@ -107,6 +107,7 @@ public class Dashboard {
     // EFFECTS: Ends the session for current week
     private void endCurrentWeek(Week week) {
         week.setActive(false);
+        System.out.println("----EXPENSE SUMMARY----");
         summarizeWeek(week);
         System.out.println("----------------------");
         printInstructions();
@@ -142,12 +143,13 @@ public class Dashboard {
         if (purchases.size() != 0) {
             int total = week.getWeekTotal();
             boolean thresholdMet = week.thresholdMet();
-            System.out.println("Items   |Price  |Day Bought");
+            System.out.printf("%-10s%-6s%-10s%6s\n","Items","Price","Category", "Day Bought");
             for (Purchase p : purchases) {
                 int price = p.getPrice();
                 String name = p.getItemName();
                 String day = p.getPurchaseDay();
-                System.out.println(name + "   " + "$" + price + "   " + day);
+                String category = p.getItemCategory();
+                System.out.printf("%-10s%-6d%-10s%6s\n",name,price,category,day);
             }
             System.out.println();
             System.out.println("Total expenditure: " + "$" + total);
@@ -157,7 +159,6 @@ public class Dashboard {
                 System.out.println("Threshold was not met in this week :(");
             }
             System.out.println("------------------------------");
-            printInstructions();
         } else {
             System.out.println("No data available for this week");
         }
