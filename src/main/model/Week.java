@@ -23,6 +23,10 @@ public class Week {
         return total;
     }
 
+    public boolean getActive() {
+        return active;
+    }
+
 
     //setters
     public void setWeekNum(int num) {
@@ -41,6 +45,7 @@ public class Week {
         this.active = state;
     }
 
+
     // MODIFIES: this
     // EFFECTS Adds purchase to list of purchases
     public void addPurchase(Purchase purchase) {
@@ -49,12 +54,12 @@ public class Week {
 
     // EFFECTS: returns true if total <= threshold; false otherwise
     public boolean thresholdMet() {
-        return total <= threshold;
+        return (this.total <= this.threshold);
     }
 
     // EFFECTS find the total of all purchases in this week
-    public int getWeekTotal() {
-        int total = 0;
+    public int produceWeekTotal() {
+        total = 0;
         for (Purchase p : purchases) {
             total += p.getPrice();
         }

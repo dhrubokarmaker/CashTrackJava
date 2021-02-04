@@ -81,7 +81,7 @@ public class Dashboard {
 
     public void weekMenu(Week week) {
         System.out.println("Threshold for this week: " + "$" + week.getThreshold());
-        System.out.println("Total expenses for this week: " + "$" + week.getWeekTotal());
+        System.out.println("Total expenses for this week: " + "$" + week.produceWeekTotal());
         System.out.println("Enter " + ADD_COMMAND + " to add a purchase");
         System.out.println("Enter " + SET_COMMAND + " to set a threshold");
         System.out.println("Enter " + END_COMMAND + " to end the week");
@@ -141,15 +141,15 @@ public class Dashboard {
     public void summarizeWeek(Week week) {
         List<Purchase> purchases = week.getPurchases();
         if (purchases.size() != 0) {
-            int total = week.getWeekTotal();
+            int total = week.produceWeekTotal();
             boolean thresholdMet = week.thresholdMet();
-            System.out.printf("%-10s%-6s%-10s%6s\n","Items","Price","Category", "Day Bought");
+            System.out.printf("%-10s%-10s%-10s%10s\n","Items","Price","Category", "Day Bought");
             for (Purchase p : purchases) {
                 int price = p.getPrice();
                 String name = p.getItemName();
                 String day = p.getPurchaseDay();
                 String category = p.getItemCategory();
-                System.out.printf("%-10s%-6d%-10s%6s\n",name,price,category,day);
+                System.out.printf("%-10s%-10d%-10s%-10s\n",name,price,category,day);
             }
             System.out.println();
             System.out.println("Total expenditure: " + "$" + total);

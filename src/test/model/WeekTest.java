@@ -30,25 +30,35 @@ public class WeekTest {
     }
 
     @Test
-    public void getWeekTotalTest(){
-        assertEquals(0,week.getWeekTotal());
+    public void produceWeekTotalTest(){
+        assertEquals(0,week.produceWeekTotal());
         week.addPurchase(purchaseA);
-        assertEquals(10,week.getWeekTotal());
+        assertEquals(10,week.produceWeekTotal());
         week.addPurchase(purchaseB);
-        assertEquals(60,week.getWeekTotal());
+        assertEquals(60,week.produceWeekTotal());
     }
 
     @Test
     public void thresholdMetTest(){
         week = new Week();
         week.setThreshold(10);
+        assertEquals(10,week.getThreshold());
         week.setTotal(9);
+        assertEquals(9,week.getTotal());
         assertTrue(week.thresholdMet());
         week.setTotal(10);
         assertTrue(week.thresholdMet());
         week.setTotal(11);
         assertFalse(week.thresholdMet());
     }
+    @Test
+    public void setActiveTest(){
+        week = new Week();
+        assertTrue(week.getActive());
+        week.setActive(false);
+        assertFalse(week.getActive());
+    }
+
 
 
 
