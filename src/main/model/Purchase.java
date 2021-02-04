@@ -1,12 +1,12 @@
 package model;
 
 public class Purchase {
-    private float price;
+    private int price;
     private String purchaseDay;
     private String itemName;
     private String itemCategory;
 
-    public Purchase(float price, String purchaseDay, String itemName, String itemCategory) {
+    public Purchase(int price, String purchaseDay, String itemName, String itemCategory) {
         this.price = price;
         this.purchaseDay = purchaseDay;
         this.itemName = itemName;
@@ -18,7 +18,7 @@ public class Purchase {
         this.itemCategory = itemCategory;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -35,13 +35,11 @@ public class Purchase {
         return itemName;
     }
 
-
     public String getItemCategory() {
         return itemCategory;
     }
 
-
-    public float getPrice() {
+    public int getPrice() {
         return price;
     }
 
