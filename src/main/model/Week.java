@@ -19,6 +19,10 @@ public class Week {
         return threshold;
     }
 
+    public int getTotal() {
+        return total;
+    }
+
 
     //setters
     public void setWeekNum(int num) {

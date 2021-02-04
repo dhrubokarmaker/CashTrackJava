@@ -80,7 +80,8 @@ public class Dashboard {
     }
 
     public void weekMenu(Week week) {
-        System.out.println("Threshold for this week: " + week.getThreshold());
+        System.out.println("Threshold for this week: " + "$" + week.getThreshold());
+        System.out.println("Total expenses for this week: " + "$" + week.getWeekTotal());
         System.out.println("Enter " + ADD_COMMAND + " to add a purchase");
         System.out.println("Enter " + SET_COMMAND + " to set a threshold");
         System.out.println("Enter " + END_COMMAND + " to end the week");
@@ -122,9 +123,9 @@ public class Dashboard {
     public void purchaseMenu(Week week) {
         Scanner inputP = new Scanner(System.in);
         System.out.println("Add item name");
-        String name = inputP.next();
+        String name = inputP.nextLine();
         System.out.println("Add item category");
-        String category = inputP.next();
+        String category = inputP.nextLine();
         System.out.println("Add item price");
         int price = inputP.nextInt();
         System.out.println("Enter purchase day");
@@ -138,18 +139,18 @@ public class Dashboard {
 
     public void summarizeWeek(Week week) {
         List<Purchase> purchases = week.getPurchases();
-        if (purchases != null) {
+        if (purchases.size() != 0) {
             int total = week.getWeekTotal();
             boolean thresholdMet = week.thresholdMet();
-            System.out.println("Items:");
+            System.out.println("Items   |Price  |Day Bought");
             for (Purchase p : purchases) {
                 int price = p.getPrice();
                 String name = p.getItemName();
-                System.out.println(name + "- " + price);
+                String day = p.getPurchaseDay();
+                System.out.println(name + "   " + "$" + price + "   " + day);
             }
             System.out.println();
-            System.out.println("Total expenditure: " + total);
-            System.out.println();
+            System.out.println("Total expenditure: " + "$" + total);
             if (thresholdMet) {
                 System.out.println("Threshold was met in this week :)");
             } else {
