@@ -7,7 +7,7 @@ import model.Week;
 import java.util.List;
 import java.util.Scanner;
 
-// A Dashboard for user to interact
+// A Dashboard for user to interact and give inputs
 public class Dashboard {
     private static final String ADD_COMMAND = "ADD";
     private static final String GET_COMMAND = "GET";
