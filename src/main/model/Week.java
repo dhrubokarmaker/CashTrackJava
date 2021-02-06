@@ -10,6 +10,9 @@ public class Week {
     private int threshold;
     private int total;
 
+    // Constructs a week
+    public Week(){}
+
     //getters
     public List<Purchase> getPurchases() {
         return purchases;
@@ -61,6 +64,7 @@ public class Week {
         return (this.total <= this.threshold);
     }
 
+    // MODIFIES: this
     // EFFECTS find the total of all purchases in this week
     public int produceWeekTotal() {
         total = 0;

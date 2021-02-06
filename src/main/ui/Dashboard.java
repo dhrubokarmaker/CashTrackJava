@@ -7,6 +7,7 @@ import model.Week;
 import java.util.List;
 import java.util.Scanner;
 
+// A Dashboard for user to interact
 public class Dashboard {
     private static final String ADD_COMMAND = "ADD";
     private static final String GET_COMMAND = "GET";
@@ -14,14 +15,17 @@ public class Dashboard {
     private static final String SET_COMMAND = "SET";
     private static final String END_COMMAND = "END";
     private boolean runProgram = true;
-    Scanner input;
-    AllWeeks weeks;
 
+    private Scanner input;
+    private AllWeeks weeks;
+
+    //EFFECTS Constructs new Dashboard with a Scanner and list of weeks
     public Dashboard() {
         input = new Scanner(System.in);
         weeks = new AllWeeks();
     }
 
+    // EFFECTS: Print command instructions
     public void printInstructions() {
         System.out.println("Enter one of the following");
         System.out.println("Enter " + ADD_COMMAND + " to add new week");
@@ -32,23 +36,25 @@ public class Dashboard {
     //EFFECTS: parses user input until user quits
     public void handleUserInput() {
         printInstructions();
-        String str;
+        String text;
 
         while (runProgram) {
-            str = getUserInputString();
-            mainMenuInput(str);
+            text = getUserInputString();
+            mainMenuInput(text);
         }
     }
 
+    // EFFECTS: Get inputs from user
     private String getUserInputString() {
-        String str = "";
+        String text = "";
         if (input.hasNext()) {
-            str = input.nextLine();
+            text = input.nextLine();
         }
-        return str;
+        return text;
     }
 
-    //EFFECTS: prints menu options and info depending on input str
+    // MODIFIES: this
+    // EFFECTS: prints menu options and info depending on input str
     private void mainMenuInput(String str) {
         if (str.length() > 0) {
             switch (str) {
@@ -59,7 +65,7 @@ public class Dashboard {
                     weekMenu(week);
                     break;
                 case GET_COMMAND:
-                    System.out.println("retrieving...");
+                    findWeekMenu();
                     break;
                 case QUIT_COMMAND:
                     runProgram = false;
@@ -80,6 +86,7 @@ public class Dashboard {
         input.close();
     }
 
+    // EFFECTS: Prints week menu
     public void weekMenu(Week week) {
         System.out.println("WEEK " + week.getWeekNum());
         System.out.println("Threshold for this week: " + "$" + week.getThreshold());
@@ -106,6 +113,7 @@ public class Dashboard {
         }
     }
 
+    // MODIFIES: week
     // EFFECTS: Ends the session for current week
     private void endCurrentWeek(Week week) {
         week.setActive(false);
@@ -123,6 +131,8 @@ public class Dashboard {
         weekMenu(week);
     }
 
+    // MODIFIES: week
+    // EFFECTS: Prints purchase menu
     public void purchaseMenu(Week week) {
         Scanner inputP = new Scanner(System.in);
         System.out.println("Add item name");
@@ -140,18 +150,19 @@ public class Dashboard {
         weekMenu(week);
     }
 
+    // EFFECTS: Summarizes week with a table and give expense details
     public void summarizeWeek(Week week) {
         List<Purchase> purchases = week.getPurchases();
         if (purchases.size() != 0) {
             int total = week.produceWeekTotal();
             boolean thresholdMet = week.thresholdMet();
-            System.out.printf("%-10s%-10s%-10s%10s\n","Items","Price","Category", "Day Bought");
+            System.out.printf("%-10s%-10s%-10s%10s\n", "Items", "Price", "Category", "Day Bought");
             for (Purchase p : purchases) {
                 int price = p.getPrice();
                 String name = p.getItemName();
                 String day = p.getPurchaseDay();
                 String category = p.getItemCategory();
-                System.out.printf("%-10s%-10d%-10s%-10s\n",name,price,category,day);
+                System.out.printf("%-10s%-10d%-10s%-10s\n", name, price, category, day);
             }
             System.out.println();
             System.out.println("Total expenditure: " + "$" + total);
@@ -164,6 +175,21 @@ public class Dashboard {
         } else {
             System.out.println("No data available for this week");
         }
+
+    }
+
+    public void findWeekMenu() {
+        Scanner inputP = new Scanner(System.in);
+        System.out.println("Enter week number");
+        int weekNum = inputP.nextInt();
+        System.out.println("Retrieving...");
+        Week week = weeks.lookupWeek(weekNum);
+        if (week != null) {
+            summarizeWeek(week);
+        } else {
+            System.out.println("Sorry, no data was found.");
+        }
+        handleUserInput();
 
     }
 }

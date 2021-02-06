@@ -6,6 +6,7 @@ public class Purchase {
     private String itemName;
     private String itemCategory;
 
+    // EFFECTS: Constructs a purchase with given price,purchaseDay,itemName and itemCategory
     public Purchase(int price, String purchaseDay, String itemName, String itemCategory) {
         this.price = price;
         this.purchaseDay = purchaseDay;
