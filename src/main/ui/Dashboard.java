@@ -178,6 +178,7 @@ public class Dashboard {
 
     }
 
+    // EFFECTS: Summarizes week with a table and give expense details
     public void findWeekMenu() {
         Scanner inputP = new Scanner(System.in);
         System.out.println("Enter week number");
