@@ -11,13 +11,22 @@ public class AllWeeks {
         weeks = new ArrayList<Week>();
     }
 
+    public List<Week> getWeeks() {
+        return weeks;
+    }
+
     public Week addWeek() {
         Week week = new Week();
         weeks.add(week);
         return week;
     }
 
-    public boolean lookupWeek(int num) {
-        return false;
+    public Week lookupWeek(int num) {
+        for (Week week : weeks) {
+            if (week.getWeekNum() == num) {
+                return week;
+            }
+        }
+        return null;
     }
 }

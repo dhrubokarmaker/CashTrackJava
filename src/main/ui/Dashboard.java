@@ -54,6 +54,7 @@ public class Dashboard {
             switch (str) {
                 case ADD_COMMAND:
                     Week week = weeks.addWeek();
+                    week.setWeekNum(weeks.getWeeks().indexOf(week) + 1);
                     System.out.println("Successfully added new week.");
                     weekMenu(week);
                     break;
@@ -80,6 +81,7 @@ public class Dashboard {
     }
 
     public void weekMenu(Week week) {
+        System.out.println("WEEK " + week.getWeekNum());
         System.out.println("Threshold for this week: " + "$" + week.getThreshold());
         System.out.println("Total expenses for this week: " + "$" + week.produceWeekTotal());
         System.out.println("Enter " + ADD_COMMAND + " to add a purchase");

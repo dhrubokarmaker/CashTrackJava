@@ -58,6 +58,12 @@ public class WeekTest {
         week.setActive(false);
         assertFalse(week.getActive());
     }
+    @Test
+    public void setterGetterTest(){
+        week = new Week();
+        week.setWeekNum(2);
+        assertEquals(2,week.getWeekNum());
+    }
 
 
 

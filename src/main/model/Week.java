@@ -27,6 +27,10 @@ public class Week {
         return active;
     }
 
+    public int getWeekNum() {
+        return weekNum;
+    }
+
 
     //setters
     public void setWeekNum(int num) {
