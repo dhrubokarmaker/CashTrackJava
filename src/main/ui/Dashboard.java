@@ -86,7 +86,7 @@ public class Dashboard {
         input.close();
     }
 
-    // EFFECTS: Prints week menu
+    // EFFECTS: Displays week menu
     public void weekMenu(Week week) {
         System.out.println("WEEK " + week.getWeekNum());
         System.out.println("Threshold for this week: " + "$" + week.getThreshold());
@@ -132,7 +132,7 @@ public class Dashboard {
     }
 
     // MODIFIES: week
-    // EFFECTS: Prints purchase menu
+    // EFFECTS: Displays purchase menu
     public void purchaseMenu(Week week) {
         Scanner inputP = new Scanner(System.in);
         System.out.println("Add item name");
@@ -178,7 +178,7 @@ public class Dashboard {
 
     }
 
-    // EFFECTS: Summarizes week with a table and give expense details
+    // EFFECTS: Displays week menu
     public void findWeekMenu() {
         Scanner inputP = new Scanner(System.in);
         System.out.println("Enter week number");
