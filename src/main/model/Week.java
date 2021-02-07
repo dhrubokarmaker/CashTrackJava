@@ -13,7 +13,7 @@ public class Week {
     private int threshold;
     private int total;
 
-    // Constructs a week
+    // EFFECTS: Constructs a week
     public Week() {
     }
 
