@@ -1,5 +1,7 @@
 package model;
 
+// Represents a single purchase.
+
 public class Purchase {
     private int price;
     private String purchaseDay;

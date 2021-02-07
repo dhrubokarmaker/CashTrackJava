@@ -3,11 +3,13 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+// Collection of weeks
+
 public class AllWeeks {
 
     private List<Week> weeks;
 
-    // EFFECTS Constructs AllWeeks with a list of weeks
+    // EFFECTS: Constructs AllWeeks with a list of weeks
     public AllWeeks() {
         weeks = new ArrayList<Week>();
     }

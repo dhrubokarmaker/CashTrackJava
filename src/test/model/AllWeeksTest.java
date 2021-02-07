@@ -11,39 +11,42 @@ public class AllWeeksTest {
     AllWeeks weeks;
 
     @BeforeEach
-    public void runBefore(){
-       weeks  = new AllWeeks();
+    public void runBefore() {
+        weeks = new AllWeeks();
     }
 
     @Test
-    public void addWeekTest(){
-        assertEquals(0,weeks.getWeeks().size());
+    public void addWeekTest() {
+        assertEquals(0, weeks.getWeeks().size());
         Week week = weeks.addWeek();
-        assertEquals(1,weeks.getWeeks().size());
+        assertEquals(1, weeks.getWeeks().size());
         assertTrue(weeks.getWeeks().contains(week));
     }
+
     @Test
-    public void lookupWeekListNotFoundEmptyListTest(){
-        assertEquals(0,weeks.getWeeks().size());
-        assertEquals(null,weeks.lookupWeek(1));
+    public void lookupWeekListNotFoundEmptyListTest() {
+        assertEquals(0, weeks.getWeeks().size());
+        assertEquals(null, weeks.lookupWeek(1));
     }
+
     @Test
-    public void lookupWeekNotFoundNonEmptyListTest(){
+    public void lookupWeekNotFoundNonEmptyListTest() {
         Week weekA = weeks.addWeek();
         Week weekB = weeks.addWeek();
-        assertEquals(2,weeks.getWeeks().size());
+        assertEquals(2, weeks.getWeeks().size());
         weekA.setWeekNum(1);
         weekB.setWeekNum(2);
-        assertEquals(null,weeks.lookupWeek(3));
+        assertEquals(null, weeks.lookupWeek(3));
     }
+
     @Test
-    public void lookupWeekTestFound(){
+    public void lookupWeekTestFound() {
         Week weekA = weeks.addWeek();
         Week weekB = weeks.addWeek();
-        assertEquals(2,weeks.getWeeks().size());
+        assertEquals(2, weeks.getWeeks().size());
         weekA.setWeekNum(1);
         weekB.setWeekNum(2);
-        assertEquals(weekB,weeks.lookupWeek(2));
-        assertEquals(weekA,weeks.lookupWeek(1));
+        assertEquals(weekB, weeks.lookupWeek(2));
+        assertEquals(weekA, weeks.lookupWeek(1));
     }
 }

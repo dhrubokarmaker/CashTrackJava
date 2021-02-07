@@ -19,7 +19,7 @@ public class Dashboard {
     private Scanner input;
     private AllWeeks weeks;
 
-    //EFFECTS Constructs new Dashboard with a Scanner and list of weeks
+    //EFFECTS: Constructs new Dashboard with a Scanner and list of weeks
     public Dashboard() {
         input = new Scanner(System.in);
         weeks = new AllWeeks();

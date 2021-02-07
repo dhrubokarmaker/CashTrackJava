@@ -3,6 +3,9 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+// Represents a single week.
+
+
 public class Week {
     private int weekNum;
     private List<Purchase> purchases = new ArrayList<Purchase>();
@@ -11,7 +14,8 @@ public class Week {
     private int total;
 
     // Constructs a week
-    public Week(){}
+    public Week() {
+    }
 
     //getters
     public List<Purchase> getPurchases() {
@@ -65,7 +69,7 @@ public class Week {
     }
 
     // MODIFIES: this
-    // EFFECTS find the total of all purchases in this week
+    // EFFECTS: find the total of all purchases in this week
     public int produceWeekTotal() {
         total = 0;
         for (Purchase p : purchases) {
