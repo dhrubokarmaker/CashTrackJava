@@ -125,22 +125,24 @@ public class Dashboard {
 
     // EFFECTS: Takes user input to set current week's threshold
     private void setWeekThreshold(Week week) {
+        int threshold = 0;
         System.out.println("Enter threshold: ");
         Scanner inputP = new Scanner(System.in);
-        week.setThreshold(inputP.nextInt());
+        threshold = takeIntegerInput(threshold, inputP, "Set threshold:", "Please enter integer dollars.");
+        week.setThreshold(threshold);
         weekMenu(week);
     }
 
     // MODIFIES: week
     // EFFECTS: Displays purchase menu
     public void purchaseMenu(Week week) {
+        int price = 0;
         Scanner inputP = new Scanner(System.in);
         System.out.println("Add item name");
         String name = inputP.nextLine();
         System.out.println("Add item category");
         String category = inputP.nextLine();
-        System.out.println("Add item price");
-        int price = inputP.nextInt();
+        price = takeIntegerInput(price, inputP, "Add item price", "Please enter integer dollars.");
         System.out.println("Enter purchase day");
         String day = inputP.next();
         Purchase purchase = new Purchase(price, day, name, category);
@@ -148,6 +150,23 @@ public class Dashboard {
         System.out.println("Successfully added the purchase");
         System.out.println("-------------------------------");
         weekMenu(week);
+    }
+
+    // EFFECTS: Takes integer input from user.
+    private int takeIntegerInput(int price, Scanner inputP, String s, String s2) {
+        boolean isInt;
+        do {
+            System.out.println(s);
+            if (inputP.hasNextInt()) {
+                price = inputP.nextInt();
+                isInt = true;
+            } else {
+                System.out.println(s2);
+                isInt = false;
+                inputP.next();
+            }
+        } while (!isInt);
+        return price;
     }
 
     // EFFECTS: Summarizes week with a table and give expense details
@@ -178,11 +197,11 @@ public class Dashboard {
 
     }
 
-    // EFFECTS: Displays week menu
+    // EFFECTS: Displays find week menu
     public void findWeekMenu() {
+        int weekNum = 0;
         Scanner inputP = new Scanner(System.in);
-        System.out.println("Enter week number");
-        int weekNum = inputP.nextInt();
+        weekNum = takeIntegerInput(weekNum, inputP, "Enter week number", "Please enter a valid number.");
         System.out.println("Retrieving...");
         Week week = weeks.lookupWeek(weekNum);
         if (week != null) {
