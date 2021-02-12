@@ -152,6 +152,7 @@ public class Dashboard {
         weekMenu(week);
     }
 
+    // MODIFIES: price
     // EFFECTS: Takes integer input from user.
     private int takeIntegerInput(int price, Scanner inputP, String s, String s2) {
         boolean isInt;
