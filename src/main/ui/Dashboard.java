@@ -107,7 +107,7 @@ public class Dashboard {
                     endCurrentWeek(week);
                     break;
                 default:
-                    mainMenuInput(str);
+                    weekMenu(week);
                     break;
             }
         }
@@ -123,6 +123,7 @@ public class Dashboard {
         printInstructions();
     }
 
+    // MODIFIES: week
     // EFFECTS: Takes user input to set current week's threshold
     private void setWeekThreshold(Week week) {
         int threshold = 0;
