@@ -211,7 +211,7 @@ public class Dashboard {
         } else {
             System.out.println("Sorry, no data was found.");
         }
-        handleUserInput();
+        printInstructions();
 
     }
 }
