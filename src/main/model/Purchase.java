@@ -2,7 +2,10 @@ package model;
 
 // Represents a single purchase.
 
-public class Purchase {
+import org.json.JSONObject;
+import persistence.Writable;
+
+public class Purchase implements Writable {
     private int price;
     private String purchaseDay;
     private String itemName;
@@ -50,4 +53,13 @@ public class Purchase {
         return purchaseDay;
     }
 
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", itemName);
+        json.put("category", itemCategory);
+        json.put("price",price);
+        json.put("purchaseDay",purchaseDay);
+        return json;
+    }
 }

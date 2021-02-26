@@ -1,12 +1,16 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.List;
 
 // Represents a single week.
 
 
-public class Week {
+public class Week implements Writable {
     private int weekNum;
     private List<Purchase> purchases = new ArrayList<Purchase>();
     private boolean active = true;
@@ -76,6 +80,24 @@ public class Week {
             total += p.getPrice();
         }
         return total;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("purchases",purchasesToJson());
+        return json;
+    }
+
+    // EFFECTS: returns purchases in Week as a JSON array
+    private JSONArray purchasesToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Purchase p : purchases) {
+            jsonArray.put(p.toJson());
+        }
+
+        return jsonArray;
     }
 
 

@@ -3,12 +3,16 @@ package ui;
 import model.AllWeeks;
 import model.Purchase;
 import model.Week;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Scanner;
 
 // A Dashboard for user to interact and give inputs
 public class Dashboard {
+    private static final String JSON_STORE = "./data/weekdata.json";
     private static final String ADD_COMMAND = "ADD";
     private static final String GET_COMMAND = "GET";
     private static final String QUIT_COMMAND = "QUIT";
@@ -16,6 +20,8 @@ public class Dashboard {
     private static final String END_COMMAND = "END";
     private boolean runProgram = true;
 
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
     private Scanner input;
     private AllWeeks weeks;
 
@@ -23,6 +29,7 @@ public class Dashboard {
     public Dashboard() {
         input = new Scanner(System.in);
         weeks = new AllWeeks();
+        jsonWriter = new JsonWriter(JSON_STORE);
     }
 
     // EFFECTS: Print command instructions
@@ -120,6 +127,7 @@ public class Dashboard {
         System.out.println("----EXPENSE SUMMARY----");
         summarizeWeek(week);
         System.out.println("----------------------");
+        saveWorkRoom();
         printInstructions();
     }
 
@@ -213,5 +221,16 @@ public class Dashboard {
         }
         printInstructions();
 
+    }
+
+    // EFFECTS: saves weeks' data to file
+    private void saveWorkRoom() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(weeks);
+            jsonWriter.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
     }
 }

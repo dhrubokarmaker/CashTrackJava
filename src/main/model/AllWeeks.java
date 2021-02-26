@@ -1,11 +1,15 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.List;
 
 // Collection of weeks
 
-public class AllWeeks {
+public class AllWeeks implements Writable {
 
     private List<Week> weeks;
 
@@ -36,4 +40,23 @@ public class AllWeeks {
         }
         return null;
     }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("weeks",weeksToJson());
+        return json;
+    }
+
+    // EFFECTS: returns weeks in AllWeeks as a JSON array
+    private JSONArray weeksToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Week w : weeks) {
+            jsonArray.put(w.toJson());
+        }
+
+        return jsonArray;
+    }
+
 }
