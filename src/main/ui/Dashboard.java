@@ -3,10 +3,12 @@ package ui;
 import model.AllWeeks;
 import model.Purchase;
 import model.Week;
+import org.json.JSONException;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -28,8 +30,8 @@ public class Dashboard {
     //EFFECTS: Constructs new Dashboard with a Scanner and list of weeks
     public Dashboard() {
         input = new Scanner(System.in);
-        weeks = new AllWeeks();
         jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
     }
 
     // EFFECTS: Print command instructions
@@ -42,6 +44,7 @@ public class Dashboard {
 
     //EFFECTS: parses user input until user quits
     public void handleUserInput() {
+        loadWeekData();
         printInstructions();
         String text;
 
@@ -127,7 +130,7 @@ public class Dashboard {
         System.out.println("----EXPENSE SUMMARY----");
         summarizeWeek(week);
         System.out.println("----------------------");
-        saveWorkRoom();
+        saveWeekData();
         printInstructions();
     }
 
@@ -213,7 +216,9 @@ public class Dashboard {
         Scanner inputP = new Scanner(System.in);
         weekNum = takeIntegerInput(weekNum, inputP, "Enter week number", "Please enter a valid number.");
         System.out.println("Retrieving...");
-        Week week = weeks.lookupWeek(weekNum);
+
+        Week week = lookupWeek(weekNum);
+
         if (week != null) {
             summarizeWeek(week);
         } else {
@@ -224,7 +229,7 @@ public class Dashboard {
     }
 
     // EFFECTS: saves weeks' data to file
-    private void saveWorkRoom() {
+    private void saveWeekData() {
         try {
             jsonWriter.open();
             jsonWriter.write(weeks);
@@ -232,5 +237,25 @@ public class Dashboard {
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + JSON_STORE);
         }
+    }
+
+    // EFFECTS: load weeks' data to file
+    private void loadWeekData() {
+        try {
+            weeks = jsonReader.read();
+        } catch (IOException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // EFFECTS: looks up week with desired weekNum,returns the week if found,null otherwise
+    private Week lookupWeek(int weekNum) {
+        List<Week> allWeeks = this.weeks.getWeeks();
+        for (Week week : allWeeks) {
+            if (allWeeks.indexOf(week) == (weekNum - 1)) {
+                return week;
+            }
+        }
+        return null;
     }
 }
