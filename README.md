@@ -15,3 +15,5 @@ income more efficiently.
 - As a user, I want to be able to add purchases to current week.
 - As a user, I want to be able to be able to set expense threshold.
 - As a user, I want to be able to see total expenses for the whole week.
+- As a user, I want to be able to save week data in a file.
+- As a user, I want As a user, I want to be able to be able to my week data from a file. 
