@@ -7,6 +7,6 @@ public class Main {
         System.out.println("Welcome to Expense Tracker!");
         // Starts the application with a new Dashboard
         Dashboard dashboard = new Dashboard();
-        dashboard.handleUserInput();
+        dashboard.handleUserInputAndLoad();
     }
 }

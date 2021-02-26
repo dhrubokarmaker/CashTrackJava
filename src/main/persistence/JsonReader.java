@@ -41,26 +41,32 @@ public class JsonReader {
         return contentBuilder.toString();
     }
 
+    // EFFECTS: parses allWeeks from JSON object and returns it
     private AllWeeks parseWeeks(JSONObject jsonObject) {
         AllWeeks allWeeks = new AllWeeks();
         JSONArray jsonArray = jsonObject.getJSONArray("weeks");
         for (Object json : jsonArray) {
             JSONObject nextWeek = (JSONObject) json;
             Week week = allWeeks.addWeek();
-            getWeekDetails(nextWeek,week);
+            addWeek(nextWeek,week);
         }
         return allWeeks;
     }
 
-    private void getWeekDetails(JSONObject nextWeek,Week week) {
+    // MODIFIES: week
+    // EFFECTS: add data of each week from JSON object to week
+    private void addWeek(JSONObject nextWeek, Week week) {
         JSONArray jsonArray = nextWeek.getJSONArray("purchases");
+        week.setThreshold(nextWeek.getInt("threshold"));
         for (Object json : jsonArray) {
             JSONObject nextPurchase = (JSONObject) json;
-            addPurchases(week, nextPurchase);
+            addPurchase(week, nextPurchase);
         }
     }
 
-    private void addPurchases(Week week, JSONObject jsonObject) {
+    // MODIFIES: week
+    // EFFECTS: add each Purchase read from JSON object to week
+    private void addPurchase(Week week, JSONObject jsonObject) {
         Integer price = jsonObject.getInt("price");
         String name = jsonObject.getString("name");
         String purchaseDay = jsonObject.getString("purchaseDay");

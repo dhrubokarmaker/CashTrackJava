@@ -86,6 +86,7 @@ public class Week implements Writable {
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("purchases",purchasesToJson());
+        json.put("threshold",threshold);
         return json;
     }
 

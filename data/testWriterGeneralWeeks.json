@@ -1,0 +1,28 @@
+{"weeks": [
+     {
+          "purchases": [
+               {
+                    "purchaseDay": "Sunday",
+                    "price": 240,
+                    "name": "Ford",
+                    "category": "Car"
+               },
+               {
+                    "purchaseDay": "Tuesday",
+                    "price": 120,
+                    "name": "Pencil",
+                    "category": "Utensils"
+               }
+          ],
+          "threshold": 100
+     },
+     {
+          "purchases": [{
+               "purchaseDay": "Monday",
+               "price": 500,
+               "name": "Apples",
+               "category": "Food"
+          }],
+          "threshold": 20
+     }
+]}

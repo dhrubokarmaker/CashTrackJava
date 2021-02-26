@@ -42,8 +42,8 @@ public class Dashboard {
         System.out.println("Enter " + QUIT_COMMAND + " to quit the program");
     }
 
-    //EFFECTS: parses user input until user quits
-    public void handleUserInput() {
+    //EFFECTS: parses user input until user quits and load week data
+    public void handleUserInputAndLoad() {
         loadWeekData();
         printInstructions();
         String text;
