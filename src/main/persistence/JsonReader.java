@@ -12,7 +12,12 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
-// Represents a reader that reads week data from JSON data stored in file
+/**
+ * Represents a reader that reads week data from JSON data stored in file
+ * Citation : code obtained from JsonSerializationDemo
+ * URL: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
+**/
+
 public class JsonReader {
     private String source;
 

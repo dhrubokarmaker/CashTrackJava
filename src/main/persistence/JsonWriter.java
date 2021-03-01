@@ -7,7 +7,12 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
-// Represents a writer that writes JSON representation of data of all weeks to file
+/**
+ * Represents a writer that writes JSON representation of data of all weeks to file
+ * Citation : code obtained from JsonSerializationDemo
+ * URL: https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
+**/
+
 public class JsonWriter {
     private static final int TAB = 5;
     private PrintWriter writer;
