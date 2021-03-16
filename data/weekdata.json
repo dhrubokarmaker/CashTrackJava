@@ -1,2 +1,20 @@
 {"weeks": [
+     {
+          "purchases": [{
+               "purchaseDay": "Sunday",
+               "price": 200,
+               "name": "Mobile",
+               "category": "Tech"
+          }],
+          "threshold": 20
+     },
+     {
+          "purchases": [{
+               "purchaseDay": "Monday",
+               "price": 12,
+               "name": "Brush",
+               "category": "Painting"
+          }],
+          "threshold": 100
+     }
 ]}

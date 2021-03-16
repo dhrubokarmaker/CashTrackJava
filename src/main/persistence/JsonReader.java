@@ -78,7 +78,6 @@ public class JsonReader {
         String category = jsonObject.getString("category");
 
         Purchase purchase = new Purchase(price,purchaseDay,name,category);
-
         week.addPurchase(purchase);
     }
 
