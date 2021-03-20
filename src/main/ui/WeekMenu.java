@@ -75,10 +75,15 @@ public class WeekMenu extends Menu implements ActionListener {
                 thresholdLabel.setText("Threshold: " + thresholdField.getText());
 
             } catch (NumberFormatException exception) {
-                JOptionPane.showMessageDialog(this, "Put valid input.");
+                invalidInputError();
             }
         }
 
+    }
+
+    private void invalidInputError() {
+        new ErrorClip();
+        JOptionPane.showMessageDialog(this, "Put valid input.");
     }
 
     private void setThreshold(Integer threshold) {

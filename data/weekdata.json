@@ -24,5 +24,28 @@
                "category": "asdasd"
           }],
           "threshold": 0
+     },
+     {
+          "purchases": [
+               {
+                    "purchaseDay": "Sunday",
+                    "price": 23,
+                    "name": "Pen",
+                    "category": "Item"
+               },
+               {
+                    "purchaseDay": "asdasd",
+                    "price": 323,
+                    "name": "asdas",
+                    "category": "asdas"
+               },
+               {
+                    "purchaseDay": "asdas",
+                    "price": 23,
+                    "name": "Mug",
+                    "category": "Non"
+               }
+          ],
+          "threshold": 232
      }
 ]}
