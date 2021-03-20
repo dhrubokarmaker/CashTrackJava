@@ -89,6 +89,7 @@ public class PurchaseMenu extends JFrame implements ActionListener {
                 dispose();
                 new WeekMenu(weeks,week);
             } catch (NumberFormatException exception) {
+                new ErrorClip();
                 JOptionPane.showMessageDialog(this, "Put valid input.");
             }
 

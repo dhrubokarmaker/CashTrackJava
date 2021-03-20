@@ -1,20 +1,28 @@
 {"weeks": [
      {
-          "purchases": [{
-               "purchaseDay": "Sunday",
-               "price": 200,
-               "name": "Mobile",
-               "category": "Tech"
-          }],
-          "threshold": 20
+          "purchases": [
+               {
+                    "purchaseDay": "Sunday",
+                    "price": 10,
+                    "name": "Pen",
+                    "category": "Stationery"
+               },
+               {
+                    "purchaseDay": "Monday",
+                    "price": 200,
+                    "name": "Calculator",
+                    "category": "tech"
+               }
+          ],
+          "threshold": 200
      },
      {
           "purchases": [{
-               "purchaseDay": "Monday",
-               "price": 12,
-               "name": "Brush",
-               "category": "Painting"
+               "purchaseDay": "asdasd",
+               "price": 1323,
+               "name": "dasdasd",
+               "category": "asdasd"
           }],
-          "threshold": 100
+          "threshold": 0
      }
 ]}

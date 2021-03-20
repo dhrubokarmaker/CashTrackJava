@@ -34,6 +34,7 @@ public class GetWeekMenu extends Menu implements ActionListener {
                 }
 
             } catch (NumberFormatException exception) {
+                new ErrorClip();
                 JOptionPane.showMessageDialog(this, "Put valid input.");
             }
         }
