@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+// Represents MainMenu frame in the GUI
 
 public class MainMenuFrame extends Menu implements ActionListener {
     private JButton addWeekButton;
@@ -14,12 +15,14 @@ public class MainMenuFrame extends Menu implements ActionListener {
     private JButton loadDataButton;
     private AllWeeks weeks;
 
+    // EFFECTS: Constructs a MainMenuFrame and initialize weeks
     public MainMenuFrame(AllWeeks weeks) {
         super();
         this.weeks = weeks;
     }
 
 
+    // EFFECTS: Assigns actions to all the buttons in current frame.
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == addWeekButton) {
@@ -40,6 +43,8 @@ public class MainMenuFrame extends Menu implements ActionListener {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: initialize all the buttons and labels in current frame
     @Override
     public void initializeButtonsAndLabels() {
         addWeekButton = new JButton("Add Week");
@@ -63,6 +68,8 @@ public class MainMenuFrame extends Menu implements ActionListener {
         this.add(loadDataButton);
     }
 
+    // MODIFIES: this
+    // EFFECTS: load weeks' data from file in weeks.
     private void loadData() {
         try {
             weeks = DashboardGUI.JSON_READER.read();

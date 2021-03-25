@@ -9,6 +9,8 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+// Represents a PurchaseMenu in the GUI.
+
 public class PurchaseMenu extends JFrame implements ActionListener {
     private Week week;
     private AllWeeks weeks;
@@ -22,7 +24,7 @@ public class PurchaseMenu extends JFrame implements ActionListener {
     private JTextField price;
     private JTextField day;
 
-
+    // EFFECTS: Constructs a PurchaseMenu frame,initialize weeks and week, and adds buttons to the frame.
     public PurchaseMenu(Week week, AllWeeks weeks) {
         this.setSize(500, 500);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -34,7 +36,7 @@ public class PurchaseMenu extends JFrame implements ActionListener {
         this.weeks = weeks;
         this.setLocationRelativeTo(null);
 
-        addLabelsAndButtons();
+        addLabels();
         addPurchaseButton = new JButton("Add Purchase");
         addPurchaseButton.setBounds(175, 150, 150, 50);
         addPurchaseButton.setFocusable(false);
@@ -43,7 +45,9 @@ public class PurchaseMenu extends JFrame implements ActionListener {
 
     }
 
-    private void addLabelsAndButtons() {
+    // MODIFIES: this
+    // EFFECTS: initialize all the labels and text fields in current frame
+    private void addLabels() {
         purchaseNameLabel.setBounds(10, 20, 80, 25);
         this.add(purchaseNameLabel);
 
@@ -73,7 +77,7 @@ public class PurchaseMenu extends JFrame implements ActionListener {
         this.add(day);
     }
 
-
+    // EFFECTS: Assigns actions to all the buttons in current frame.
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == addPurchaseButton) {

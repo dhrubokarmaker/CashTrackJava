@@ -7,6 +7,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+// Represents GetWeekMenu in the GUI
 
 public class GetWeekMenu extends Menu implements ActionListener {
     private JButton getWeekButton;
@@ -15,11 +16,13 @@ public class GetWeekMenu extends Menu implements ActionListener {
     private JTextField weekNumField;
     private JLabel weekNumLabel;
 
+    // EFFECTS: Constructs a GetWeekMenu frame and initialize weeks
     public GetWeekMenu(AllWeeks weeks) {
         super();
         this.weeks = weeks;
     }
 
+    // EFFECTS: Assigns actions to all the buttons in current frame.
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == getWeekButton) {
@@ -44,6 +47,8 @@ public class GetWeekMenu extends Menu implements ActionListener {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS: initialize all the buttons and labels in current frame
     @Override
     protected void initializeButtonsAndLabels() {
         backButton = new JButton("Back");
@@ -67,6 +72,7 @@ public class GetWeekMenu extends Menu implements ActionListener {
         this.add(weekNumField);
     }
 
+    // EFFECTS: Returns Week in weeks with given week number,null if not found.
     private Week lookupWeek(int weekNum) {
         List<Week> allWeeks = this.weeks.getWeeks();
         for (Week week : allWeeks) {

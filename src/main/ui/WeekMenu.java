@@ -10,6 +10,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 
+// Represents a Week Menu in the GUI.
+
 public class WeekMenu extends Menu implements ActionListener {
     private JButton addPurchaseButton;
     private JButton setThresholdButton;
@@ -23,7 +25,7 @@ public class WeekMenu extends Menu implements ActionListener {
     private AllWeeks weeks;
     private Week currentWeek;
 
-
+    // EFFECTS: Constructs a WeekMenu frame and initialize weeks,week and initialize labels in frame.
     public WeekMenu(AllWeeks weeks, Week week) {
         super();
         this.weeks = weeks;
@@ -31,7 +33,10 @@ public class WeekMenu extends Menu implements ActionListener {
         initializeLabels();
     }
 
-    protected void initializeButtonsAndLabels() {
+    // MODIFIES: this
+    // EFFECTS: initialize all the buttons and labels in current frame
+    @Override
+    public void initializeButtonsAndLabels() {
         addPurchaseButton = new JButton("Add Purchase");
         addPurchaseButton.setBounds(150, 100, 200, 50);
         addPurchaseButton.setFocusable(false);
@@ -52,6 +57,8 @@ public class WeekMenu extends Menu implements ActionListener {
         this.add(endWeekButton);
     }
 
+    // MODIFIES: this
+    // EFFECTS: Assigns actions to all the buttons in current frame.
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == addPurchaseButton) {
@@ -81,17 +88,21 @@ public class WeekMenu extends Menu implements ActionListener {
 
     }
 
+    // EFFECTS: Produces an error message and an error clip if input is invalid.
     private void invalidInputError() {
         new ErrorClip();
         JOptionPane.showMessageDialog(this, "Put valid input.");
     }
 
+    // MODIFIES: this
+    // EFFECTS: Sets threshold of current week to threshold.
     private void setThreshold(Integer threshold) {
         currentWeek.setThreshold(threshold);
         JOptionPane.showMessageDialog(this, "Threshold was set to :" + threshold.toString());
         enterThreshold.dispose();
     }
 
+    // EFFECTS: Save the weeks' data to file.
     private void saveWeekData() {
         try {
             JsonWriter jsonWriter = DashboardGUI.JSON_WRITER;
@@ -104,6 +115,8 @@ public class WeekMenu extends Menu implements ActionListener {
         dispose();
     }
 
+    // MODIFIES: this
+    // EFFECTS: Initialize labels in the frame.
     private void initializeLabels() {
         Integer weekNum = new Integer(currentWeek.getWeekNum());
         weekNumLabel = new JLabel("Week: " + weekNum);
@@ -122,6 +135,7 @@ public class WeekMenu extends Menu implements ActionListener {
         this.add(totalLabel);
     }
 
+    // EFFECTS: Creates a new frame for a form that sets threshold.
     private void thresholdForm() {
         enterThreshold = new JFrame();
         enterThreshold.setSize(300, 100);

@@ -2,11 +2,13 @@ package ui;
 
 import javax.sound.sampled.*;
 import java.io.File;
+// Represents an audio clip that plays when user enters illegal inputs
 
 public class ErrorClip {
 
     private Clip line;
 
+    //EFFECTS: Constructs an Error Clip and plays it.
     public ErrorClip() {
 
         try {
@@ -21,7 +23,6 @@ public class ErrorClip {
                 line = null;
             } else {
                 line = (Clip) AudioSystem.getLine(info);
-                //line.setLoopPoints(0, -1);
                 line.open(sound);
             }
         } catch (Exception ex) {

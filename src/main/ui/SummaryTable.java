@@ -9,12 +9,15 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.Vector;
 
+// Represents a summary table for a given week
+
 public class SummaryTable extends JFrame {
     private Week currentWeek;
     private DefaultTableModel model;
     private JTable table;
     private JPanel panel;
 
+    // EFFECTS: Constructs a frame with the summary table and initialize currentWeek to week.
     public SummaryTable(Week week) {
         table = new JTable();
         this.currentWeek = week;
@@ -39,6 +42,8 @@ public class SummaryTable extends JFrame {
         this.setLocationRelativeTo(null);
     }
 
+    // MODIFIES: this
+    // EFFECTS : Adds purchase data to the table
     private void addPurchaseData() {
         for (Purchase p : currentWeek.getPurchases()) {
             Vector<String> result = new Vector<>();
@@ -51,6 +56,8 @@ public class SummaryTable extends JFrame {
         }
     }
 
+    // MODIFIES: this
+    // EFFECTS : Adds labels to the frame.
     private void addLabels() {
         JLabel thresholdLabel = new JLabel();
         JLabel totalLabel = new JLabel("Total Expenses: " + ((Integer) currentWeek.produceWeekTotal()).toString());
