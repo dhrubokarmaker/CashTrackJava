@@ -1,11 +1,10 @@
 package model;
 
+import exceptions.NotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class AllWeeksTest {
     AllWeeks weeks;
@@ -26,7 +25,12 @@ public class AllWeeksTest {
     @Test
     public void lookupWeekListNotFoundEmptyListTest() {
         assertEquals(0, weeks.getWeeks().size());
-        assertEquals(null, weeks.lookupWeek(1));
+        try{
+            weeks.lookupWeek(1);
+            fail();
+        } catch (NotFoundException e) {
+            //expected
+        }
     }
 
     @Test
@@ -36,7 +40,12 @@ public class AllWeeksTest {
         assertEquals(2, weeks.getWeeks().size());
         weekA.setWeekNum(1);
         weekB.setWeekNum(2);
-        assertEquals(null, weeks.lookupWeek(3));
+        try{
+            weeks.lookupWeek(3);
+            fail();
+        } catch (NotFoundException e) {
+            //expected
+        }
     }
 
     @Test
@@ -46,7 +55,15 @@ public class AllWeeksTest {
         assertEquals(2, weeks.getWeeks().size());
         weekA.setWeekNum(1);
         weekB.setWeekNum(2);
-        assertEquals(weekB, weeks.lookupWeek(2));
-        assertEquals(weekA, weeks.lookupWeek(1));
+        try{
+            weeks.lookupWeek(2);
+        } catch (NotFoundException e) {
+            fail();
+        }
+        try{
+            weeks.lookupWeek(1);
+        } catch (NotFoundException e) {
+            fail();
+        }
     }
 }

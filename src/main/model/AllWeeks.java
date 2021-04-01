@@ -1,5 +1,6 @@
 package model;
 
+import exceptions.NotFoundException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import persistence.Writable;
@@ -32,19 +33,19 @@ public class AllWeeks implements Writable {
     }
 
     // EFFECTS: looks up week with desired weekNum,returns the week if found,null otherwise
-    public Week lookupWeek(int weekNum) {
+    public Week lookupWeek(int weekNum) throws NotFoundException {
         for (Week week : weeks) {
-            if (week.getWeekNum() == weekNum) {
+            if (weeks.indexOf(week) == (weekNum - 1)) {
                 return week;
             }
         }
-        return null;
+        throw new NotFoundException();
     }
 
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
-        json.put("weeks",weeksToJson());
+        json.put("weeks", weeksToJson());
         return json;
     }
 

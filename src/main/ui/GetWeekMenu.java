@@ -1,5 +1,6 @@
 package ui;
 
+import exceptions.NotFoundException;
 import model.AllWeeks;
 import model.Week;
 
@@ -27,18 +28,16 @@ public class GetWeekMenu extends Menu implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == getWeekButton) {
             try {
-                Week week = lookupWeek(Integer.parseInt(weekNumField.getText()));
-                if (week != null) {
-                    new MainMenuFrame(weeks);
-                    new SummaryTable(week);
-                    dispose();
-                } else {
-                    JOptionPane.showMessageDialog(this, "No data was found");
-                }
+                Week week = weeks.lookupWeek(Integer.parseInt(weekNumField.getText()));
+                new MainMenuFrame(weeks);
+                new SummaryTable(week);
+                dispose();
 
             } catch (NumberFormatException exception) {
                 new ErrorClip();
                 JOptionPane.showMessageDialog(this, "Put valid input.");
+            } catch (NotFoundException notFoundException) {
+                JOptionPane.showMessageDialog(this, "No data was found");
             }
         }
         if (e.getSource() == backButton) {
@@ -72,14 +71,4 @@ public class GetWeekMenu extends Menu implements ActionListener {
         this.add(weekNumField);
     }
 
-    // EFFECTS: Returns Week in weeks with given week number,null if not found.
-    private Week lookupWeek(int weekNum) {
-        List<Week> allWeeks = this.weeks.getWeeks();
-        for (Week week : allWeeks) {
-            if (allWeeks.indexOf(week) == (weekNum - 1)) {
-                return week;
-            }
-        }
-        return null;
-    }
 }

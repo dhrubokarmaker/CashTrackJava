@@ -3,49 +3,26 @@
           "purchases": [
                {
                     "purchaseDay": "Sunday",
-                    "price": 10,
-                    "name": "Pen",
+                    "price": 200,
+                    "name": "Pencil",
                     "category": "Stationery"
                },
                {
-                    "purchaseDay": "Monday",
-                    "price": 200,
-                    "name": "Calculator",
-                    "category": "tech"
+                    "purchaseDay": "asdas",
+                    "price": 323,
+                    "name": "das",
+                    "category": "sdasd"
                }
           ],
-          "threshold": 200
+          "threshold": 233
      },
      {
           "purchases": [{
-               "purchaseDay": "asdasd",
-               "price": 1323,
-               "name": "dasdasd",
-               "category": "asdasd"
+               "purchaseDay": "fsdf",
+               "price": 323,
+               "name": "ed",
+               "category": "dae"
           }],
           "threshold": 0
-     },
-     {
-          "purchases": [
-               {
-                    "purchaseDay": "Sunday",
-                    "price": 23,
-                    "name": "Pen",
-                    "category": "Item"
-               },
-               {
-                    "purchaseDay": "asdasd",
-                    "price": 323,
-                    "name": "asdas",
-                    "category": "asdas"
-               },
-               {
-                    "purchaseDay": "asdas",
-                    "price": 23,
-                    "name": "Mug",
-                    "category": "Non"
-               }
-          ],
-          "threshold": 232
      }
 ]}
