@@ -27,5 +27,5 @@ if week with given week number is not found.
 There is a lot of coupling between AllWeeks class, and the classes that render different menus
 (e.g MainMenuFrame,PurchaseMenu,etc.). The classes that render menu rely on AllWeeks for changes in its fields/states 
 like list of weeks,week total etc. I think this can be refactored by using the Observer Design Pattern, making
-the AllWeeks class extend Observable, and the menu classes to be Observer. This would remove the association between 
-AllWeeks class and the menu classes.
+the AllWeeks class extend Java's Observable, and the menu classes to implement Observer. This would remove 
+the association between AllWeeks class and the menu classes.
