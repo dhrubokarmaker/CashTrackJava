@@ -1,27 +1,19 @@
 {"weeks": [
      {
-          "purchases": [
-               {
-                    "purchaseDay": "Sunday",
-                    "price": 200,
-                    "name": "Pencil",
-                    "category": "Stationery"
-               },
-               {
-                    "purchaseDay": "asdas",
-                    "price": 323,
-                    "name": "das",
-                    "category": "sdasd"
-               }
-          ],
-          "threshold": 233
+          "purchases": [{
+               "purchaseDay": "asdas",
+               "price": 232,
+               "name": "sdad",
+               "category": "sdsa"
+          }],
+          "threshold": 232
      },
      {
           "purchases": [{
-               "purchaseDay": "fsdf",
-               "price": 323,
-               "name": "ed",
-               "category": "dae"
+               "purchaseDay": "sdasd",
+               "price": 2324,
+               "name": "sdas",
+               "category": "sfas"
           }],
           "threshold": 0
      }

@@ -32,7 +32,7 @@ public class AllWeeks implements Writable {
         return week;
     }
 
-    // EFFECTS: looks up week with desired weekNum,returns the week if found,null otherwise
+    // EFFECTS: looks up week with desired weekNum,returns the week if found,throws NotFoundException otherwise
     public Week lookupWeek(int weekNum) throws NotFoundException {
         for (Week week : weeks) {
             if (weeks.indexOf(week) == (weekNum - 1)) {

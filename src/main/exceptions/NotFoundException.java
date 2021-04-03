@@ -1,4 +1,5 @@
 package exceptions;
 
-public class NotFoundException extends Exception{
+// Represents an exception thrown when required week is not found.
+public class NotFoundException extends Exception {
 }

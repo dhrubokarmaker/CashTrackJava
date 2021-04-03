@@ -17,3 +17,7 @@ income more efficiently.
 - As a user, I want to be able to see total expenses for the whole week.
 - As a user, I want to be able to save week data in a file.
 - As a user, I want As a user, I want to be able to be able to my week data from a file. 
+
+**Phase 4: Task 2**
+- I have chosen option 1. The AllWeeks class in model package is robust. The lookupWeek method throws NotFoundException 
+if week with given week number is not found.
