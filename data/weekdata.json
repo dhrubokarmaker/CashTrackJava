@@ -1,28 +1,2 @@
 {"weeks": [
-     {
-          "purchases": [
-               {
-                    "purchaseDay": "Sunday",
-                    "price": 40,
-                    "name": "Pizza",
-                    "category": "Food"
-               },
-               {
-                    "purchaseDay": "Friday",
-                    "price": 60,
-                    "name": "Jeans",
-                    "category": "Clothes"
-               }
-          ],
-          "threshold": 200
-     },
-     {
-          "purchases": [{
-               "purchaseDay": "Monday",
-               "price": 400,
-               "name": "Phone",
-               "category": "Tech"
-          }],
-          "threshold": 100
-     }
 ]}
