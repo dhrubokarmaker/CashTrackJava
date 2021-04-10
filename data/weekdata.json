@@ -1,20 +1,28 @@
 {"weeks": [
      {
-          "purchases": [{
-               "purchaseDay": "asdas",
-               "price": 232,
-               "name": "sdad",
-               "category": "sdsa"
-          }],
-          "threshold": 232
+          "purchases": [
+               {
+                    "purchaseDay": "Sunday",
+                    "price": 40,
+                    "name": "Pizza",
+                    "category": "Food"
+               },
+               {
+                    "purchaseDay": "Friday",
+                    "price": 60,
+                    "name": "Jeans",
+                    "category": "Clothes"
+               }
+          ],
+          "threshold": 200
      },
      {
           "purchases": [{
-               "purchaseDay": "sdasd",
-               "price": 2324,
-               "name": "sdas",
-               "category": "sfas"
+               "purchaseDay": "Monday",
+               "price": 400,
+               "name": "Phone",
+               "category": "Tech"
           }],
-          "threshold": 0
+          "threshold": 100
      }
 ]}
