@@ -8,7 +8,7 @@ public class ErrorClip {
 
     private Clip line;
 
-    //EFFECTS: Constructs an Error Clip and plays it.
+    //EFFECTS: Constructs an Error Clip and plays the clip.
     public ErrorClip() {
 
         try {
