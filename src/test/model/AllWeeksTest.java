@@ -14,6 +14,7 @@ public class AllWeeksTest {
         weeks = new AllWeeks();
     }
 
+
     @Test
     public void addWeekTest() {
         assertEquals(0, weeks.getWeeks().size());
@@ -44,7 +45,6 @@ public class AllWeeksTest {
             weeks.lookupWeek(3);
             fail();
         } catch (NotFoundException e) {
-            //expected
         }
     }
 
